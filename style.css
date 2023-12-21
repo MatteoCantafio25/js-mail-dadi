@@ -4,3 +4,41 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Utils */
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+
+
+/* MAIN */
+
+.players {
+    margin: 0 auto;
+    height: 100px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.win {
+    height: 100px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
