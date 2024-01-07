@@ -37,7 +37,7 @@ button.addEventListener("click", function () {
         console.log("mail controllata: ", allowedMails[i]);
         console.log("mail dell'utente: ", userEmail);
 
-        // CONTROLLO SE LA MAIL MESSA DALL'UTENTE E' NELLA LISTA DELLE MAIL AURORIZZATE
+        // FACCIO UNA SERIE DI AZIONI SE LA MAIL INSERITA E' EFFETTIVAMENTE NELLA LISTA
         if (userEmail === allowedMails[i]) {
             console.log("trovata");
             userIsAllowed = true;
@@ -51,7 +51,7 @@ button.addEventListener("click", function () {
     console.log("Utente è autorizzato: ", userIsAllowed);
 
 
-    // DOPO IL CONTROLLO MODIFICO LA PAGINA IN BASE A SE LA MAIL DELL'UTENTE E' NELLA LISTA
+    // DOPO IL CONTROLLO MODIFICO LA PAGINA IN BASE A SE LA MAIL DELL'UTENTE E' NELLA LISTA O MENO
     if (userIsAllowed) {
         button.classList.add("d-none");
         resultElement.innerText = "Benvenuto";
