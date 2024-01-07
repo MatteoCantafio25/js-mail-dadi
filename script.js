@@ -1,47 +1,62 @@
-//---------------------------------//
+//---------------------------------
 // MI ASSICURO CHE IL FOGLIO JS COMUNICHI CON IL FOGLIO HTML
 
 console.log("JS OK");
 
-//---------------------------------//
-// ASSEGNO UNA COSTANTE AGLI ELEMENTI E LI PRENDO TRAMITE L'ID
-const npcElement = document.getElementById("npc");
-const humanElement = document.getElementById("human");
-const victoryElement = document.getElementById("victory");
+//---------------------------------
+// INVENTO MAIL AUTORIZZATE
 
-//---------------------------------//
-// ASSEGNO UNA COSTANTE AL BOTTONE E LO PRENDO TRAMITE L'ID
-const confirmButton = document.getElementById("confirm-button");
+const allowedMails = ["matteo@gmail.com", "giuseppe@gmail.com", "martina@gmail.com"];
 
-//---------------------------------//
-// AGGIUNGO UN EVENT LISTENER AL CLICK DEL BOTTONE
-confirmButton.addEventListener("click", function () {
-    //----------------//
-    // CALCOLO UN NUMERO RANDOMICO DA 1 A 6
-    const npcNumber = Math.floor(Math.random() * 6) + 1;
 
-    //----------------//
-    // STAMPO IN PAGINA IL RISULTATO PER IL COMPUTER
-    npcElement.innerText = "Il computer ha fatto" + " " + npcNumber;
+//---------------------------------
+// RECUPERO GLI ELEMENTI
+const input = document.getElementById("input");
+const button = document.getElementById("button");
+const resultElement = document.getElementById("result");
+const validation = document.getElementById("validation");
 
-    //----------------//
-    // CALCOLO UN NUMERO RANDOMICO DA 1 A 6
-    const humanNumber = Math.floor(Math.random() * 6) + 1;
+//---------------------------------
+// FACCIO REAGIRE IL BOTTONE AL CLICK CON LA LOGICA 
 
-    //----------------//
-    // STAMPO IN PAGINA IL RISULTATO PER GIOVANNI
-    humanElement.innerText = "Giovanni ha fatto" + " " + humanNumber;
+button.addEventListener("click", function () {
+    // PRENDO IL VALUE DALL'INPUT
+    const userEmail = input.value.trim();
 
-    //----------------//
-    // DECRETO IL VINCITORE
-    if (npcNumber > humanNumber) {
-        victoryElement.innerText = "Il computer ha vinto";
-    } else if (humanNumber > npcNumber) {
-        victoryElement.innerText = "Giovanni ha vinto";
+    // ! VALIDAZIONE
+    if (!userEmail) {
+        validation.classList.remove("d-none");
+        return;
     }
-    //----------------//
-    // AGGIUNGO LA POSSIBILITA' DI UN PAREGGIO
-    else if (humanNumber === npcNumber) {
-        victoryElement.innerText = "Parità Tirate di nuovo i dadi!";
+
+    // CREO UN FLAG
+    let userIsAllowed = false;
+
+    // CONTROLLO CHE LA MAIL INSERITA E' NELLA LISTA DELLE MAIL ATURORIZZATE
+    for (let i = 0; i < allowedMails.length && !userIsAllowed; i++) {
+        console.log("mail controllata: ", allowedMails[i]);
+        console.log("mail dell'utente: ", userEmail);
+
+        // CONTROLLO SE LA MAIL MESSA DALL'UTENTE E' NELLA LISTA DELLE MAIL AURORIZZATE
+        if (userEmail === allowedMails[i]) {
+            console.log("trovata");
+            userIsAllowed = true;
+            validation.innerText = "";
+        }
+
+
+        console.log("-----------------");
+    }
+
+    console.log("Utente è autorizzato: ", userIsAllowed);
+
+
+    // DOPO IL CONTROLLO MODIFICO LA PAGINA IN BASE A SE LA MAIL DELL'UTENTE E' NELLA LISTA
+    if (userIsAllowed) {
+        button.classList.add("d-none");
+        resultElement.innerText = "Benvenuto";
+    } else {
+        validation.classList.remove("d-none");
+        validation.innerText = "Non sei autorizzato";
     }
 })
