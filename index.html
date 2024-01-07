@@ -11,11 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+    <!-- Esercizio Dadi -->
     <main>
         <div class="players">
             <div>
@@ -32,8 +37,22 @@
             <button id="confirm-button" class="fs-20">Lancia i dadi</button>
         </div>
     </main>
+
+
+    <!-- Esercizio Mail-->
+
+    <div class="mail-container d-flex align-items-center justify-content-center mt-5">
+        <input id="input" type="email" class="mx-3" placeholder="Inserisci la tua mail">
+        <div id="validation" class="d-none text-danger"> Il campo è obbligatorio</div>
+        <button id="button" class="btn btn-primary">Accedi</button>
+    </div>
+
+    <div id="result"></div>
+
+
     <!-- Javascript -->
     <script src="script.js"></script>
+    <script src="dadi.js"></script>
 </body>
 
 </html>
